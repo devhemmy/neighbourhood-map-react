@@ -4,6 +4,7 @@ import scriptLoader from 'react-async-script-loader';
 import { MAP_KEY } from '../data/credentials';
 import { mapStyles } from '../data/mapStyles.js';
 import ListView from './ListView';
+import foursquare from '../images/foursquare.png';
 
 class App extends Component {
 
@@ -37,7 +38,7 @@ class App extends Component {
   componentWillReceiveProps({isScriptLoadSucceed}){
 
     // Check if script is loaded and if map is defined
-    if (isScriptLoadSucceed && !this.state.mapReady ) {
+    if (isScriptLoadSucceed && !this.state.mapReady && MAP_KEY == "" || MAP_KEY == "AIzaSyAOyaSkquBkYcGxPsSunyRaT7e3GQDixnA" ) {
 
       // create map
       const map = new window.google.maps.Map(document.getElementById('map'), {
@@ -59,7 +60,8 @@ class App extends Component {
 
     // alert user if map request fails
     } else if ( !this.state.mapReady ) {
-      console.log("Map did not load");
+      alert("Map did not load please check the console for more details")
+      console.log("there was a problem with the map key please remove the key or use the original one");
       this.setState({mapError: true});
     }
   }
@@ -118,8 +120,7 @@ class App extends Component {
             : <p>We are experiencing loading issues. Please check your internet connection</p>
           }
 
-
-
+          <img src={foursquare} className="fs-logo" alt="foursquare" />
         </section>
         <section id="map" className="map" role="application">
           { mapError ?  // Show error message id map didn't load
@@ -134,6 +135,7 @@ class App extends Component {
 
              </div>
         }
+
         </section>
       </div>
     );

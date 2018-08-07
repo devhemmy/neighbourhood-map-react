@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Place from './Place';
 import { getFSLocations, getFSDetails } from '../apis/foursquare';
 import noImage from '../images/no-image.png';
+import fsButton from '../images/foursquare-button.png';
 import foodIcon from '../images/my-marker.png';
 import PropTypes from 'prop-types';
 
@@ -101,7 +102,7 @@ class ListView extends Component {
                                 <p class="place-tip">${marker.tip}</p>
                                 <a class="place-link" href="${marker.url}" target="_blank">
                                   <span>Read more</span>
-
+                                  <img class="fs-link" src="${fsButton}">
                                 </a>`
 
           // set content and open window after content has returned
