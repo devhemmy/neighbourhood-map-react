@@ -104,7 +104,7 @@ class App extends Component {
           role="complementary"
           tabIndex={ listOpen ? '0' : '-1' }
           >
-          <h1 className="app-title">Hurghada</h1>
+          <h1 className="app-title">Hemmy In Hurghada</h1>
 
           { /* render markers only when map has loaded */
             mapReady ?
